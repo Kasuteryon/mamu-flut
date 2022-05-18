@@ -22,8 +22,8 @@ class ButtonPurple extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
             gradient: LinearGradient(
                 colors: [
-                  Color(0xFF449DD1),
-                  Color(0xFF192BC2),
+                  Color.fromARGB(255, 250, 105, 139),
+                  Color(0xFFE3879E),
                 ],
                 begin: FractionalOffset(0.2, 0.0),
                 end: FractionalOffset(1.0, 0.6),

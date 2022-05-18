@@ -35,7 +35,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          GradientBack(title: "Añadir nuevo lugar:", altura: 300.0),
+          GradientBack(title: "Añadir Pieza:", altura: 300.0),
           Row(
             children: [
               Container(
@@ -58,7 +58,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                 child: Container(
                   padding: EdgeInsets.only(top: 45.0, left: 20.0),
                   child: TitleHeader(
-                    title: "Añadir lugar ",
+                    title: "Añadir Pieza",
                   ),
                 ),
               )

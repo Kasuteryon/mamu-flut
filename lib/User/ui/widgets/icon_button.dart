@@ -28,7 +28,7 @@ class _CreateIconButtonState extends State<CreateIconButton> {
         child: Center(
           child: Icon(
             widget.iconData,
-            color: Color(0xFF584CD1),
+            color: Color.fromARGB(255, 250, 105, 139),
             size: widget.mini == true ? 20 : 45,
           ),
         ),

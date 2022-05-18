@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xeiccx.trips">
    <application
-        android:label="trips"
+        android:label="Mamushka"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

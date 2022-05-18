@@ -17,7 +17,7 @@ class ProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final photo = Container(
-      margin: EdgeInsets.only(top: 140.0, left: 20.0),
+      margin: EdgeInsets.only(top: 90.0, left: 20.0),
       width: 90.0,
       height: 90.0,
       decoration: BoxDecoration(
