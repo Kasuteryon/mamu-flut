@@ -57,7 +57,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Container(
                   width: screenWidth,
                   child: Text(
-                    "¡Bienvenidos \n a su aplicación de viajes!",
+                    "¡Bienvenida al \n administrador Mamushka!",
                     style: TextStyle(
                         fontFamily: "Epilogue",
                         fontSize: 37.0,

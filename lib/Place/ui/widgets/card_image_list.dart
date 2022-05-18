@@ -19,18 +19,7 @@ class CardImageList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           CardImage(
-            pathImage: "./assets/img/ometepe.jpg",
-            iconData: Icons.favorite,
-            width: width,
-            height: height,
-            isUploading: false,
-
-            
-            onPressed: () {},
-            left: left,
-          ),
-          CardImage(
-            pathImage: "./assets/img/peña.jpg",
+            pathImage: "./assets/img/crochet.jpg",
             iconData: Icons.favorite,
             width: width,
             height: height,
@@ -39,7 +28,7 @@ class CardImageList extends StatelessWidget {
             left: left,
           ),
           CardImage(
-            pathImage: "./assets/img/rio.jpg",
+            pathImage: "./assets/img/vestir.jpg",
             iconData: Icons.favorite,
             width: width,
             height: height,
@@ -48,7 +37,7 @@ class CardImageList extends StatelessWidget {
             left: left,
           ),
           CardImage(
-            pathImage: "./assets/img/san.jpg",
+            pathImage: "./assets/img/uniforme.jpg",
             iconData: Icons.favorite,
             width: width,
             height: height,

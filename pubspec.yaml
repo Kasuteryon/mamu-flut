@@ -100,15 +100,9 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-    - assets/img/lebni.jpg
-    - assets/img/angelina.jpg
-    - assets/img/danny.png
-    - assets/img/scarlett.jpg
-    - assets/img/ometepe.jpg
-    - assets/img/rio.jpg
-    - assets/img/san.jpg
-    - assets/img/peña.jpg
-    - assets/img/sara.jpg
+    - assets/img/crochet.jpg
+    - assets/img/uniforme.jpg
+    - assets/img/vestir.jpg
   fonts:
     - family: Lato
       fonts:
