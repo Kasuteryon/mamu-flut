@@ -75,7 +75,10 @@ class _BottomBlurModalState extends State<BottomBlurModal> {
                             final picker = ImagePicker();
 
                             ImagePicker.platform
-                                .pickImage(source: ImageSource.camera)
+                                .pickImage(
+                                    source: ImageSource.camera,
+                                    maxHeight: 480,
+                                    maxWidth: 640)
                                 .then((image) {
                               if (image != null) {
                                 Navigator.push(
@@ -91,7 +94,10 @@ class _BottomBlurModalState extends State<BottomBlurModal> {
                             final picker = ImagePicker();
 
                             ImagePicker.platform
-                                .pickImage(source: ImageSource.gallery)
+                                .pickImage(
+                                    source: ImageSource.gallery,
+                                    maxHeight: 480,
+                                    maxWidth: 640)
                                 .then((image) {
                               if (image != null) {
                                 Navigator.push(

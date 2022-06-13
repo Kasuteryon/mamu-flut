@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       child: MaterialApp(
-          title: 'Trips',
+          title: 'Mamushka',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(primarySwatch: Colors.blue),
           home: SignInScreen()

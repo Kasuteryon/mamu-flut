@@ -113,6 +113,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                   child: ButtonPurple(
                     buttonText: "Agregar Pieza",
                     onPressed: () {
+                      Navigator.pop(context);
                       // 1. Firebase Storage para
                       // el URL de la imagen
                       userBloc.currentUser.then((User? user) {
@@ -143,7 +144,6 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                                                 uriImage: urlImage))
                                             .whenComplete(() {
                                           print("TERMINO CORRECTAMENTE");
-                                          Navigator.pop(context);
                                         });
                                       });
                                     })
