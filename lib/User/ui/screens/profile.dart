@@ -9,6 +9,7 @@ import 'package:trips/User/bloc/bloc_user.dart';
 import 'package:trips/User/model/user.dart';
 import 'package:trips/User/ui/widgets/card_image_profile.dart';
 import 'package:trips/User/ui/widgets/icon_button.dart';
+import 'package:trips/User/ui/widgets/modal_bottom.dart';
 import 'package:trips/widgets/gradient_back.dart';
 //import 'package:trips/card_photo_detail.dart';
 import 'profile_info.dart';
@@ -16,6 +17,7 @@ import 'profile_info.dart';
 class ProfileTrips extends StatelessWidget {
   UserBloc? userBloc;
   UserModel? user;
+
   @override
   Widget build(BuildContext context) {
     userBloc = BlocProvider.of<UserBloc>(context);
@@ -75,27 +77,11 @@ class ProfileTrips extends StatelessWidget {
               mini: false,
               active: true,
               onPressed: () {
-                final picker = ImagePicker();
-
-                ImagePicker.platform
-                    .pickImage(source: ImageSource.camera)
-                    .then((image) {
-                  if (image != null) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                AddPlaceScreen(image: image)));
-
-                    print(image.path);
-                  }
-                }).catchError((onError) => print(onError));
-
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (BuildContext context) =>
-                //             AddPlaceScreen(image: img)));
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return BottomBlurModal();
+                    });
               },
             ),
             CreateIconButton(
@@ -136,14 +122,16 @@ class ProfileTrips extends StatelessWidget {
                     case ConnectionState.done:
                       return Expanded(
                         child: ListView(
-                          padding: EdgeInsets.only(left: 12, right: 12),
+                          padding: EdgeInsets.only(
+                              left: 12, right: 12, bottom: 80.0),
                           children: userBloc!.buildPlaces(snapshot.data!.docs),
                         ),
                       );
                     case ConnectionState.active:
                       return Expanded(
                         child: ListView(
-                          padding: EdgeInsets.only(left: 12, right: 12),
+                          padding: EdgeInsets.only(
+                              left: 12, right: 12, bottom: 80.0),
                           children: userBloc!.buildPlaces(snapshot.data!.docs),
                         ),
                       );

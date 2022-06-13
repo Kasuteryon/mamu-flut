@@ -100,18 +100,18 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                   maxLines: 6,
                   controller: _controllerDescriptionPlace,
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 20.0),
-                  child: LocationInput(
-                    hintText: "Ingresa ubicación",
-                    iconData: Icons.location_on_outlined,
-                    controller: TextEditingController(),
-                  ),
-                ),
+                // Container(
+                //   margin: EdgeInsets.only(top: 20.0),
+                //   child: LocationInput(
+                //     hintText: "Ingresa ubicación",
+                //     iconData: Icons.location_on_outlined,
+                //     controller: TextEditingController(),
+                //   ),
+                // ),
                 Container(
                   width: 70.0,
                   child: ButtonPurple(
-                    buttonText: "Agregar lugar",
+                    buttonText: "Agregar Pieza",
                     onPressed: () {
                       // 1. Firebase Storage para
                       // el URL de la imagen

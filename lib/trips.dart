@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:trips/Place/ui/screens/home.dart';
 import 'package:trips/Place/ui/screens/search.dart';
 import 'package:trips/User/bloc/bloc_user.dart';
@@ -18,12 +19,15 @@ class Trips extends StatefulWidget {
 }
 
 class _TripsState extends State<Trips> {
-  int indexTap = 2;
+  int indexTap = 0;
   UserBloc? userBloc;
 
   void onTapTapped(int index) {
     setState(() => indexTap = index);
-
+    if (_pageController.hasClients) {
+      _pageController.animateToPage(index,
+          duration: Duration(microseconds: 1000), curve: Curves.linear);
+    }
     @override
     void initState() {
       super.initState();
@@ -31,56 +35,103 @@ class _TripsState extends State<Trips> {
     }
   }
 
+  PageController _pageController = PageController(
+    initialPage: 0,
+    keepPage: true,
+  );
+
+  final List<Widget> widgetsChildren = [
+    BlocProvider<UserBloc>(child: ProfileTrips(), bloc: UserBloc()),
+    HomeTrips(),
+    SearcTrips()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final List<Widget> widgetsChildren = [
-      HomeTrips(),
-      SearcTrips(),
-      BlocProvider<UserBloc>(child: ProfileTrips(), bloc: UserBloc())
-    ];
-
     return Scaffold(
-      body: widgetsChildren[indexTap],
-      extendBody: true,
+      body: PageView(
+        controller: _pageController,
+        children: [
+          BlocProvider<UserBloc>(child: ProfileTrips(), bloc: UserBloc()),
+          HomeTrips(),
+          SearcTrips()
+        ],
+        onPageChanged: onTapTapped,
+      ),
+      //extendBody: true,
 
       // DOT FLOATING NAVIGATION
-      bottomNavigationBar: DotNavigationBar(
+      // bottomNavigationBar: DotNavigationBar(
+      //   currentIndex: indexTap,
+      //   onTap: onTapTapped,
+      //   enableFloatingNavBar: true,
+      //   marginR: EdgeInsets.only(right: 40.0, left: 40.0, bottom: 25.0),
+      //   borderRadius: 20.0,
+      //   boxShadow: [
+      //     BoxShadow(
+      //       color: Colors.black12,
+      //       blurRadius: 20.0,
+      //       // shadow
+      //       spreadRadius: .5,
+      //       // set effect of extending the shadow
+      //       offset: Offset(
+      //         0.0,
+      //         5.0,
+      //       ),
+      //     )
+      //   ],
+      //   // dotIndicatorColor: Colors.black,
+      //   items: [
+      //     /// Home
+      //     DotNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       selectedColor: Colors.blue,
+      //     ),
+
+      //     /// Search
+      //     DotNavigationBarItem(
+      //       icon: Icon(Icons.search),
+      //       selectedColor: Colors.teal,
+      //     ),
+
+      //     /// Profile
+      //     DotNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //       selectedColor: Colors.orange,
+      //     ),
+      //   ],
+      // ),
+
+      bottomNavigationBar: SalomonBottomBar(
+        unselectedItemColor: Colors.grey,
         currentIndex: indexTap,
         onTap: onTapTapped,
-        enableFloatingNavBar: true,
-        marginR: EdgeInsets.only(right: 40.0, left: 40.0, bottom: 25.0),
-        borderRadius: 20.0,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 20.0,
-            // shadow
-            spreadRadius: .5,
-            // set effect of extending the shadow
-            offset: Offset(
-              0.0,
-              5.0,
-            ),
-          )
-        ],
-        // dotIndicatorColor: Colors.black,
         items: [
-          /// Home
-          DotNavigationBarItem(
-            icon: Icon(Icons.home),
-            selectedColor: Colors.blue,
+          SalomonBottomBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 27,
+            ),
+            title: Text("Inicio"),
+            selectedColor: Color.fromARGB(255, 250, 105, 139),
           ),
 
-          /// Search
-          DotNavigationBarItem(
-            icon: Icon(Icons.search),
-            selectedColor: Colors.teal,
+          /// Likes
+          SalomonBottomBarItem(
+            icon: Icon(
+              Icons.people,
+              size: 27,
+            ),
+            title: Text("Mensajes"),
+            selectedColor: Color.fromARGB(255, 250, 105, 139),
           ),
-
-          /// Profile
-          DotNavigationBarItem(
-            icon: Icon(Icons.person),
-            selectedColor: Colors.orange,
+          SalomonBottomBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 27,
+            ),
+            title: Text("Buscar"),
+            selectedColor: Color.fromARGB(255, 250, 105, 139),
           ),
         ],
       ),
